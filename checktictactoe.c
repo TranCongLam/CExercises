@@ -13,8 +13,11 @@ int main()
    
     int tictac1 = checkTicTacToeBoard(array1);
     printf("Result is %d\n", tictac1);
-    int exercise1 = checkWin(array1);
-    printf("Player %d is win\n", exercise1);
+    if (tictac1 == 1){
+        int exercise1 = checkWin(array1);
+        printf("Player %d is win\n", exercise1);
+    }
+    
     
     //checkEx2
     int array2[3][3] = {
@@ -25,8 +28,11 @@ int main()
     
     int tictac2 = checkTicTacToeBoard(array2);
     printf("Result is %d\n", tictac2);
-    int exercise2 = checkWin(array2);
-    printf("Player %d is win\n", exercise2);
+    if (tictac2 == 1){
+        int exercise2 = checkWin(array2);
+        printf("Player %d is win\n", exercise2);
+    }
+    
     
     //checkEx3
     int array3[3][3] = {
@@ -37,8 +43,10 @@ int main()
     
     int tictac3 = checkTicTacToeBoard(array3);
     printf("Result is %d\n", tictac3);
-    int exercise3 = checkWin(array3);
-    printf("Player %d is win\n", exercise3);
+    if (tictac3 == 1){
+        int exercise3 = checkWin(array3);
+        printf("Player %d is win\n", exercise3); 
+    }
     return 0;
 }
 //CheckTicTacToeBoard
@@ -57,7 +65,7 @@ int checkTicTacToeBoard(int array[3][3]){
         }
     }
     int sum = num1 + num2;
-    if (sum == 9){
+    if (num0 == 9){
         check = 1;
         return check;
     }else if (sum % 2 == 0 && num1 != num2){
@@ -145,4 +153,3 @@ int checkWin(int array[3][3]){
     }
     return winner;
 }
-
