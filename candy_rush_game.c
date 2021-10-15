@@ -42,7 +42,7 @@ void displayBoard(int boardGame[9][9], int score)
     printf("\nYour score= %d\n", score);
 }
 
-void moveByDirection(int boardGame[9][9], int x, int y, int direction, int * score) {
+int moveByDirection(int boardGame[9][9], int x, int y, int direction, int * score) {
     if(direction == move_top) {
         int temp = boardGame[x][y];
         boardGame[x][y] = boardGame[x - 1][y];
@@ -70,7 +70,7 @@ void moveByDirection(int boardGame[9][9], int x, int y, int direction, int * sco
     //TODO2 how to revert move
     //No -> revert move
     
-
+    
     // Check col
     
     for ( int j = 0; j < 9; j++){
@@ -86,6 +86,7 @@ void moveByDirection(int boardGame[9][9], int x, int y, int direction, int * sco
             }
         }
     }
+
     // Check row
     for ( int i = 0; i < 9; i++){
         for ( int j = 0; j < 5; j++){
@@ -97,16 +98,19 @@ void moveByDirection(int boardGame[9][9], int x, int y, int direction, int * sco
                 break;
             } else if ( boardGame[i][j] == boardGame[i][j + 1] && boardGame[i][j + 1] == boardGame[i][j + 2]){
                 * score += 3;
+               
             }
         }
     }
+    return score;
+    return 0;
 
 }
 
 
 void main()
 {
-    int score = 0;
+    int *score = 0;
 
     int board[9][9] = {
         {yellow, red, blue, yellow, purple, blue, green, red, blue},
